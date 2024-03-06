@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Operations Plan</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1a83c834-6621-4d20-8547-fd8d4849e546" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_ibm_type_704.jpg" style="object-position:center 17.62%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🐲</span></div><h1 class="page-title"><strong>Operations Plan</strong></h1><p class="page-description"></p></header><div class="page-body"><p id="a2443f70-b40d-41cd-aceb-db71283a9275" class="">The Operations Plan of Procedural Imagination outlines the logistical framework and strategic actions necessary for our studio&#x27;s day-to-day functions and long-term objectives. This comprehensive guide details our development processes, technology stack, team structure, and project management methodologies. It serves as a blueprint for transforming our innovative game concepts into market-ready products, ensuring efficiency, quality, and scalability in our operations. By meticulously planning our operational approach, we are poised to navigate the complexities of the video game industry, maintain our competitive edge, and achieve sustained growth and success in Geneva, New York, and beyond.<br/><br/></p><ul id="e1a56f72-1b1d-4a15-ad09-072c4d007875" class="toggle"><li><details open=""><summary>The Procedural Iπagination Development Process:</summary><p id="4050df61-194e-49c0-a9bd-6b8013be6052" class="">Incorporating your vision for a balanced and effective development cycle, Procedural Imagination (P.I.) has tailored a 12-month development process that aligns with our commitment to innovation, quality, and well-being. This cycle not only respects the creative process but also ensures our team remains energized and our company maintains its independence.</p><p id="3a76fcd1-077f-4dae-841e-23138416b444" class="">
+</p><p id="a54ec5aa-3ef8-4ea0-93b9-f98b7e7c93ad" class=""><strong>Annual Strategy: Independence and Balance</strong></p><ul id="bc8ddb18-3de2-4654-baf2-bbcfb59820f6" class="bulleted-list"><li style="list-style-type:disc"><strong>Core Philosophy</strong>: Strive for independence, ensuring creative freedom and alignment with our vision.</li></ul><p id="afc51728-f207-4304-9406-2691777c06f2" class=""><strong>January to September: Action Months (9 Months)</strong></p><ul id="98e40645-8922-4099-8bdb-a364ef1f60ae" class="bulleted-list"><li style="list-style-type:disc"><strong>Execution and Follow-Through</strong>: This period is dedicated to intensive development efforts, including design, programming, testing, and initial marketing activities. It&#x27;s a time of high productivity, focusing on pushing our projects forward.</li></ul><ul id="fbf8d415-f910-44ab-8bb0-b0eb20141ed7" class="bulleted-list"><li style="list-style-type:disc"><strong>Milestones</strong>: Key development milestones are strategically placed throughout these months to track progress and ensure that projects are on schedule.</li></ul><p id="f9a5d7e9-e4f5-48a5-87b5-331b03cf9e8a" class=""><strong>October: Prototype Month</strong></p><ul id="ab963cb6-b903-4f99-a3de-e45fbf391d00" class="bulleted-list"><li style="list-style-type:disc"><strong>Creative Exploration</strong>: October is set aside for creativity and experimentation. The team engages in game jams and prototype development, exploring new ideas without the pressure of deliverables. This fosters innovation and allows for the birth of new concepts that may become future projects.</li></ul><ul id="c68d8bce-4704-496f-a871-1a5798b850a1" class="bulleted-list"><li style="list-style-type:disc"><strong>Team Collaboration</strong>: Emphasize collaboration and creative freedom, allowing team members to pitch new game ideas or explore different technologies, including advancements in BCI and VR.</li></ul><p id="ef8a861d-116e-4338-bc70-99abc18b7599" class=""><strong>November: Light Planning and Transition</strong></p><ul id="15715aaa-a52e-4f96-b385-f8dd5441f413" class="bulleted-list"><li style="list-style-type:disc"><strong>Preparation for Pause</strong>: The focus shifts towards wrapping up immediate tasks, setting up auto-reply emails, and ensuring all client communications are clear about the upcoming break. This month allows for light planning and reflection on the year’s work, setting the stage for the next cycle.</li></ul><ul id="dde6b6a3-0612-499c-8bba-392e8605dc59" class="bulleted-list"><li style="list-style-type:disc"><strong>Relaxation Begins</strong>: Expectations for deliverables are minimal, encouraging the team to start winding down and preparing for the December freeze.</li></ul><p id="89adeb46-b041-48d0-96b9-709ef3f23e70" class=""><strong>December: Freeze and Gathering</strong></p><ul id="581106c9-2d42-4c83-acce-0ebe37d87bd1" class="bulleted-list"><li style="list-style-type:disc"><strong>No Work Expectations</strong>: December is a period of rest, with no work expectations or deadlines. It&#x27;s a time for the team to recharge, celebrate achievements, and engage in discussions about future directions in a relaxed setting.</li></ul><ul id="700411bb-4bb4-4569-81d1-e399a58a130c" class="bulleted-list"><li style="list-style-type:disc"><strong>Community and Gaming</strong>: Emphasizing the importance of community, December also includes gaming sessions, allowing the team to connect with games both from P.I. and the wider industry, fostering a deeper appreciation and understanding of current gaming trends.</li></ul><p id="ca94c229-a79d-4483-85f7-0927c15cd5d2" class="">By following this tailored development process, Procedural Imagination ensures a steady flow of innovation and productivity while maintaining the well-being and creative spark of our team. This approach not only supports the delivery of high-quality gaming experiences but also upholds our values of independence, community, and a healthy work-life balance.</p></details></li></ul><hr id="346a44c6-12c1-4b39-9487-e1fe2dc40e7b"/><ul id="33aa0d35-1f6f-4347-9431-30e753eb1964" class="toggle"><li><details open=""><summary>Technology Stack for Game Development and BCI Integration:</summary><p id="540c4ac5-33f8-4cf5-831f-83922ce02659" class=""><strong>Primary Game Engine</strong>:</p><ul id="bfa4e841-46ff-4205-b465-2d00009bd56f" class="bulleted-list"><li style="list-style-type:disc"><strong>Godot</strong>: Selected as our primary game engine due to its open-source nature, robust community support, and Python-like scripting language (GDScript), Godot stands out for its adaptability in game development and potential in handling BCI data processing. Its open-source model not only aligns with our innovative approach but also offers significant cost savings, making it a strategic choice for P.I. The engine&#x27;s growing popularity and capabilities make it an ideal fit for our forward-thinking development strategy.</li></ul><p id="4449a97e-1560-4e4a-aec3-0458ce4418bb" class=""><strong>Supplementary Game Engines</strong>:</p><ul id="5bca40fe-80b5-40b1-96c1-30ed4dcb35f7" class="bulleted-list"><li style="list-style-type:disc"><strong>Unity and Unreal Engine</strong>: While Godot will serve as our main platform, we remain open to leveraging Unity and Unreal Engine for specific projects that may benefit from their unique features, especially in VR/AR development and when targeting specific platforms or utilizing particular graphical technologies.</li></ul><p id="a89a334e-8a91-4cde-bef7-8bea1cdf3ce0" class=""><strong>Programming Languages</strong>:</p><ul id="92ccacf3-0214-41e9-8224-9922ee8092f0" class="bulleted-list"><li style="list-style-type:disc"><strong>GDScript</strong>: As Godot’s native scripting language, GDScript offers ease of use for developers with Python experience, facilitating rapid development and iteration.</li></ul><ul id="3d607f58-47f3-4f6b-abe6-98944a9e3431" class="bulleted-list"><li style="list-style-type:disc"><strong>C# and C++</strong>: For projects developed in Unity and Unreal Engine, respectively, ensuring we can tap into the advanced capabilities and extensive asset libraries these engines offer.</li></ul><p id="428aef32-469e-49cf-9f4e-bc31a6aa52de" class=""><strong>BCI Integration Tools</strong>:</p><ul id="235aed05-f47f-48a0-b0e3-2ceb4c35ce82" class="bulleted-list"><li style="list-style-type:disc"><strong>OpenBCI</strong>: For integrating BCI technology, we will utilize the OpenBCI platform, which offers open-source software and hardware solutions designed for neurotechnology innovation. This choice supports our commitment to pioneering BCI integration in gaming, providing the flexibility and accessibility needed for experimental and cutting-edge development.</li></ul><p id="b28e585f-3011-4857-bbca-56b2a66adea3" class=""><strong>Development and Collaboration Tools</strong>:</p><ul id="acca9eaf-6d00-458b-91dc-bc508be3e9f7" class="bulleted-list"><li style="list-style-type:disc"><strong>Git</strong>: For version control, we&#x27;ll use Git, hosted on platforms like GitHub or GitLab, facilitating collaboration among our development team and ensuring efficient management of project iterations.</li></ul><ul id="154248ce-1371-4bbe-82d4-c6f222e1e5b8" class="bulleted-list"><li style="list-style-type:disc"><strong>Blender</strong>: For 3D modeling, animation, and rendering, Blender will be our tool of choice, complementing Godot’s capabilities and supporting the creation of high-quality game assets.</li></ul><p id="69c4c914-af27-4ee1-96f1-559a55e29158" class="">By strategically selecting Godot as our primary engine, supplemented by Unity and Unreal Engine as necessary, and integrating these with a suite of development and BCI integration tools, Procedural Imagination is poised to lead in the creation of innovative and immersive gaming experiences. This technology stack not only aligns with our vision for the future of game development but also ensures we are well-equipped to navigate the complexities of integrating BCI technology into our titles.</p><p id="9020ed7a-35c5-430e-ad7f-72ca68c5de85" class="">
+</p></details></li></ul><p id="57ed6680-becb-4940-b15c-afd5336f7f83" class="">
+</p><p id="6f7cdc11-2450-441f-88d4-1abfbbd03032" class=""><strong>Ideal 10-Year Game Development Timeline:</strong></p><p id="5e9112d0-3b00-4bc1-bb2b-9df0703fdbc4" class="">This table outlines an ideal timeline for a game development company focusing on long-term growth with high-quality deliverables. It assumes significant funding, allowing for <strong>low initial expenditure</strong> and a <strong>cautious scaling-up</strong> approach based on meeting milestones. Each year, the company would expand its capacity only as needed, ensuring the resources for long-term development and innovation.</p><p id="ab2e0bcb-24c7-4a0a-be3e-b5ebc9ffed05" class="">
+</p><table id="cf0ec42a-46da-400c-9287-7cdf4fb5fae7" class="simple-table"><tbody><tr id="c9eb0001-ba12-47d6-bcf1-6e21b6e64601"><td id="mdMn" class="" style="width:59px">Year</td><td id="D;r_" class="" style="width:345px">Milestones</td></tr><tr id="3834c567-fee6-4010-8e4d-10cde531cd40"><td id="mdMn" class="" style="width:59px">1</td><td id="D;r_" class="" style="width:345px">1-2 smaller revenue generating titles</td></tr><tr id="c03ca1a4-f9ca-4784-9be2-cf117dda5374"><td id="mdMn" class="" style="width:59px">2</td><td id="D;r_" class="" style="width:345px">Full production of next big title</td></tr><tr id="3fedc269-2d29-48b9-a0bb-40746b3c2ed2"><td id="mdMn" class="" style="width:59px">3</td><td id="D;r_" class="" style="width:345px">Tentative release date for 3rd title</td></tr><tr id="b89317a0-4ce1-4c0a-8456-9f878ae193c6"><td id="mdMn" class="" style="width:59px">4</td><td id="D;r_" class="" style="width:345px">Multiple PC/Console / VR games in production</td></tr><tr id="dc8d037b-0375-41c2-a76c-b44745aaf240"><td id="mdMn" class="" style="width:59px">5</td><td id="D;r_" class="" style="width:345px">Significant strides in VR and BCI, working with established IPs</td></tr><tr id="973c98a3-70c1-4418-af79-541a3442b813"><td id="mdMn" class="" style="width:59px">6</td><td id="D;r_" class="" style="width:345px">Advanced BCI research through silver-somma integration</td></tr><tr id="c3502666-57e9-4389-b0f5-45a8ddcc03df"><td id="mdMn" class="" style="width:59px">7</td><td id="D;r_" class="" style="width:345px">Continued focus on VR/BCI and established IPs</td></tr><tr id="bf360d7f-4fab-47d1-8051-e78b2115de44"><td id="mdMn" class="" style="width:59px">8</td><td id="D;r_" class="" style="width:345px">Pre-production on new IP</td></tr><tr id="6049157f-a905-43b1-9dd3-5d8249c158de"><td id="mdMn" class="" style="width:59px">9</td><td id="D;r_" class="" style="width:345px">Full production of new IP</td></tr><tr id="81819e9f-c77d-4885-a854-6e3fb6818ffe"><td id="mdMn" class="" style="width:59px"><mark class="highlight-gray_background">10</mark></td><td id="D;r_" class="" style="width:345px">Full release of brand new IP</td></tr></tbody></table><p id="0d201cb4-caf3-4741-b6d7-65ec1c9c3bb1" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
