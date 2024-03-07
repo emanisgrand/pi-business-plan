@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body, html {
+  font-family: 'Roboto', sans-serif;
+  background-color: #1A1A2E; /* Dark blue background */
+  color: #FF7F50; /* Coral text color for better readability */
+}
+
+/* Default text color for the entire page */
+body, .page sans, p, .bulleted-list, .numbered-list {
+  color: #EAEAEA; /* Light grey for general readability */
+}
+.column figure img {
+  border: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column figcaption {
+  text-align: center;
+  color: #EAEAEA;
+}
+/* Style for captions under images */
+figure.image figcaption {
+  font-style: italic; /* If you want the entire caption to be italic */
+  text-align: center; /* Centers the caption */
+  color: #EAEAEA; /* Light grey text, adjust color as needed */
+  margin-top: 0.5em; /* Space above the caption */
+  margin-bottom: 1em; /* Space below the caption */
+  font-size: 0.9em; /* Adjust font size as needed */
+}
+
+/* Specific styling for .toggle class text */
+.toggle {
+  color: #FF7F50; /* Coral for text directly inside .toggle elements */
+}
+
+/* For elements within .toggle, if you want a different color */
+.toggle * {
+  color: #EAEAEA; /* Light grey for nested content */
+}
+
+/* Adjust link colors globally and then specifically within .toggle */
+a, a:visited {
+  color: #FF7F50; /* Coral for all links */
+}
+
+.toggle a, .toggle a:visited {
+  color: #EAEAEA; /* Light grey for links inside .toggle */
+}
+
+.toggle a:hover {
+  color: #FFFFFF; /* White on hover for clarity */
+}
+
+.toggle h1, .toggle h2, .toggle h3 {
+  color: #FAD02E; /* Bright yellow for headers to stand out */
+}
+
+/* Sidebar navigation styling */
+.sidebar-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #16213E; /* Darker shade for sidebar background */
+  overflow-y: auto;
+  border-right: 2px solid #0F3460; /* Adds a subtle border to the right */
+}
+
+/* Remove any default margin and padding from list items */
+.sidebar-navigation ul li {
+  margin: 0; /* Remove any margin that might be adding space outside the list items */
+  padding: 0; /* Remove any padding that might be adding space inside the list items */
+}
+
+.sidebar-navigation ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-navigation ul li a {
+  display: block;
+  color: #FF7F50;
+  text-decoration: none;
+  font-weight: 500; /* Makes the font a bit bolder */
+  border-bottom: 1px solid #0F3460; /* Adds a subtle separator */
+}
+
+.sidebar-navigation ul li a:hover, .sidebar-navigation ul li a:focus {
+  background-color: #0F3460; /* Slightly lighter blue for hover/focus */
+  color: #FFFFFF; /* Brighter text on hover/focus for contrast */
+}
+
+/* Content style */
+.page-content {
+  margin-left: 250px; /* Ensure content doesn't overlap sidebar */
+  padding: 20px;
+  color: #FF7F50;
+}
+
+.page-title {
+  font-family: 'Press Start 2P', cursive; /* Fun, game-inspired font for titles */
+  color: #E94560; /* Bright red for attention-grabbing titles */
+  text-transform: uppercase; /* Stylistic choice for game-related titles */
+}
+
+h1, h2, h3 {
+  color: #FAD02E; /* Bright yellow for headers to stand out */
+}
+
+a, a.visited {
+  color: #FF7F50; /* Consistent with the page title for aesthetic harmony */
+  text-decoration: underline;
+}
+
+a:hover, a:focus {
+  color: #FFFFFF; /* White on hover for clarity */
+}
+
+/* Enhancements for readability and engagement */
+p, li {
+  line-height: 1.6; /* Improved readability with more breathing room */
+}
+
+code {
+  background-color: #0F3460;
+  color: #FF7F50;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+/* Table Basic Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  background-color: #1A1A2E; /* Dark background for the table */
+}
+
+/* Table Headers */
+th {
+  background-color: #16213E; /* Slightly lighter than table background for contrast */
+  color: #FF7F50; /* Coral color for header text */
+  font-weight: bold;
+  padding: 5px;
+  border-bottom: 2px solid #0F3460; /* Dark blue border for a subtle contrast */
+}
+
+/* Table Cells */
+td {
+  color: #EAEAEA; /* Light grey for readability */
+  padding: 5px;
+  border-bottom: 1px solid #0F3460; /* Subtle border for separating rows */
+  padding-left: 8px; /* Reduce the left padding for all cells */
+  padding-right: 8px; /* Reduce the right padding for all cells */
+}
+
+/* Table Row Hover Effect */
+tr:hover {
+  background-color: #0F3460; /* Darker blue for hover effect */
+}
+
+/* Highlighting Important Rows or Cells */
+mark.highlight-gray_background {
+  background-color: #FF7F50; /* Coral background for highlighted cells */
+  color: #1A1A2E; /* Dark text color for contrast */
+  padding: 5px;
+  border-radius: 3px;
+}
+
+/* Adjusting link colors within the table to match the site's theme */
+table a, table a:visited {
+  color: #FFD700; /* Bright yellow for links, ensuring visibility against dark background */
+}
+
+table a:hover {
+  color: #FFFFFF; /* White on hover for clarity */
+}
