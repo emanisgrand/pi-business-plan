@@ -66,12 +66,40 @@ a, a:visited {
 .sidebar-navigation {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -250px;
   width: 250px;
   height: 100%;
+  transition: left 0.3s;
   background-color: #16213E; /* Darker shade for sidebar background */
   overflow-y: auto;
   border-right: 2px solid #0F3460; /* Adds a subtle border to the right */
+}
+
+.content {
+  transition: margin-left 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar-navigation {
+    left: 0; /* show sidebar for larger screens */
+  }
+  .content {
+    margin-left: 250px; /* Make space for the sidebar */
+  }
+}
+
+#sidebarToggle {
+  display: none;
+}
+
+@media screen and (max-width: 768px){
+  #sidebarToggle {
+    display: block;
+    position: : fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
 }
 
 /* Remove any default margin and padding from list items */
