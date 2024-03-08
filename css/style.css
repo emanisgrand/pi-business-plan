@@ -7,6 +7,14 @@ body, html {
   color: #FF7F50; /* Coral text color for better readability */
 }
 
+.toggle .section-title {
+  /* Example styles */
+  color: #FAD02E; /* Change text color */
+  font-weight: bold; /* Make text bold */
+  margin-bottom: 20px; /* Add space below the paragraph */
+  font-size: 1.2em; /* Increase font size */
+}
+
 /* Default text color for the entire page */
 body, .page sans, p, .bulleted-list, .numbered-list {
   color: #EAEAEA; /* Light grey for general readability */
@@ -35,11 +43,6 @@ figure.image figcaption {
 /* Specific styling for .toggle class text */
 .toggle {
   color: #FF7F50; /* Coral for text directly inside .toggle elements */
-}
-
-/* For elements within .toggle, if you want a different color */
-.toggle * {
-  color: #EAEAEA; /* Light grey for nested content */
 }
 
 /* Adjust link colors globally and then specifically within .toggle */
