@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/pi-business-plan/static/css/main.2d74a70a.css",
+    "main.js": "/pi-business-plan/static/js/main.98a8b5ed.js",
+    "static/media/mariokart.png": "/pi-business-plan/static/media/mariokart.d68f437f70af873b0246.png",
+    "static/media/ivana-cajina-asuyh-_ZX54-unsplash (1).jpg": "/pi-business-plan/static/media/ivana-cajina-asuyh-_ZX54-unsplash (1).5b2b193ca2806b367af7.jpg",
+    "static/media/nasa_space_shuttle_challenger.jpg": "/pi-business-plan/static/media/nasa_space_shuttle_challenger.58f3359695b2daa8f152.jpg",
+    "static/media/spacex-pnPS3Ox_2vE-unsplash.jpg": "/pi-business-plan/static/media/spacex-pnPS3Ox_2vE-unsplash.135bb074880eecb3f05a.jpg",
+    "static/media/logo-no-background.png": "/pi-business-plan/static/media/logo-no-background.090d414d026b69b26666.png",
+    "index.html": "/pi-business-plan/index.html",
+    "main.2d74a70a.css.map": "/pi-business-plan/static/css/main.2d74a70a.css.map",
+    "main.98a8b5ed.js.map": "/pi-business-plan/static/js/main.98a8b5ed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d74a70a.css",
+    "static/js/main.98a8b5ed.js"
+  ]
+}
